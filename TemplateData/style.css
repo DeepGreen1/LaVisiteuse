@@ -4,6 +4,28 @@ src: url("Daubenton.otf") format("otf");
 src: url("Daubenton.ttf") format("woff");
 }
 
+@keyframes fade {
+0% {
+	opacity: 100%;
+}
+100% {
+    opacity: 0;
+}
+}
+
+@keyframes slide {
+35%{
+	transform: translateY(0);
+	font-size: 100px;
+	color: white;
+}
+100% {
+    transform: translateY(-60vh);
+	color: black;
+	font-size: 30px;
+}
+}
+
 body { padding: 0; margin: 0; background-image: url(background.jpg); overflow: hidden; }
 p {
 	font-family: "CustomFont", Arial;
@@ -16,6 +38,26 @@ p {
 	width: 50%;
 	border-bottom: 3px solid black;
 	padding: auto;
+}
+#mover{
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-image: url("background.jpg");
+	animation: fade 5s ease-in;
+	z-index: 1;
+	display: flex;
+}
+#mover > strong {
+	animation: slide 5s ease;
+	font-family: "CustomFont", Arial;
+	font-size: 100px;
+	text-align: center;
+	margin: auto;
+	color: white;
 }
 #unity-container { position: absolute }
 #unity-container.unity-desktop { left: 50%; top: 50%; transform: translate(-50%, -50%) }
